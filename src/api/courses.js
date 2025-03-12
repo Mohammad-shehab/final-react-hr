@@ -15,7 +15,19 @@ const applyForCourse = async (courseId) => {
   }
 };
 
+const addCourse = async (course) => {
+  const response = await instance.post("/courses", course);
+  return response.data;
+};
+
+const deleteCourse = async (courseId) => {
+  const response = await instance.delete(`/courses/${courseId}`);
+  return response.data;
+};
+
 export {
   getAllCourses,
   applyForCourse,
+  addCourse,
+  deleteCourse,
 };

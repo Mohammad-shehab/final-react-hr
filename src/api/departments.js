@@ -5,6 +5,12 @@ const getAllDepartments = async () => {
   return response.data.$values; // Access the $values array
 };
 
+const getDepartments = async () => {
+  const response = await instance.get("/departments");
+  return response.data;
+};
+
 export {
   getAllDepartments,
+
 };
