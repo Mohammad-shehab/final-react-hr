@@ -10,12 +10,22 @@ const applyForCourse = async (courseId) => {
     const response = await instance.post(`/courses/apply`, { courseId });
     return response.data;
   } catch (error) {
-    console.error("Error applying for course:", error.response ? error.response.data : error.message);
+    console.error(
+      "Error applying for course:",
+      error.response ? error.response.data : error.message
+    );
     throw error;
   }
 };
 
-export {
-  getAllCourses,
-  applyForCourse,
+const addCourse = async (course) => {
+  const response = await instance.post("/courses", course);
+  return response.data;
 };
+
+const deleteCourse = async (courseId) => {
+  const response = await instance.delete(`/courses/${courseId}`);
+  return response.data;
+};
+
+export { getAllCourses, applyForCourse, addCourse, deleteCourse };

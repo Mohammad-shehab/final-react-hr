@@ -21,8 +21,10 @@ const MainNavigation = () => {
 
           return <Ionicons name={iconName} size={size} color={color} />;
         },
-        tabBarActiveTintColor: '#d63384', // Set active tab color to pink
-        tabBarInactiveTintColor: 'gray', // Set inactive tab color to gray
+        // tabBarActiveTintColor: "#d63384", // Set active tab color to pink
+        tabBarInactiveTintColor: "gray", // Set inactive tab color to gray
+       
+        
       })}
     >
       <Tab.Screen
@@ -45,3 +47,5 @@ const MainNavigation = () => {
 };
 
 export default MainNavigation;
+
+

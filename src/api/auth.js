@@ -2,28 +2,19 @@ import instance from ".";
 import { setToken } from "./storage";
 
 const register = async (userInfo) => {
-  const formData = new FormData();
-
-  for (const key in userInfo) {
-    formData.append(key, userInfo[key]);
-  }
- 
-
   try {
-    const res = await instance.post("/auth/register", formData, {
+    const res = await instance.post("/auth/register", userInfo, {
       headers: {
-        "Content-Type": "multipart/form-data",
+        "Content-Type": "application/json",
       },
     });
     console.log(res);
-    setToken(res.data.token);
     return res.data;
   } catch (error) {
     console.error("Registration error:", error.response ? error.response.data : error.message);
     throw error;
   }
 };
-
 const login = async (userInfo) => {
   try {
     const res = await instance.post("/auth/login", userInfo);
